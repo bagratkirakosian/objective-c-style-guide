@@ -1,4 +1,4 @@
-#x Objective-C Style Guide
+# Objective-C Style Guide
 
 This style guide outlines the coding conventions of the iOS teams at The New York Times. We welcome your feedback in [issues](https://github.com/NYTimes/objective-c-style-guide/issues) and [pull requests](https://github.com/NYTimes/objective-c-style-guide/pulls). Also, [we’re hiring](http://www.nytco.com/careers/).
 
@@ -62,10 +62,12 @@ UIApplication.sharedApplication.delegate;
 
 **For example:**
 ```objc
-if (user.isHappy) {
+if (user.isHappy) 
+{
     // Do something
 }
-else {
+else 
+{
     // Do something else
 }
 ```
@@ -79,7 +81,8 @@ Conditional bodies should always use braces even when a conditional body could b
 
 **For example:**
 ```objc
-if (!error) {
+if (!error) 
+{
     return success;
 }
 ```
@@ -117,7 +120,8 @@ When methods return an error parameter by reference, switch on the returned valu
 **For example:**
 ```objc
 NSError *error;
-if (![self trySomethingWithError:&error]) {
+if (![self trySomethingWithError:&error]) 
+{
     // Handle Error
 }
 ```
@@ -126,7 +130,8 @@ if (![self trySomethingWithError:&error]) {
 ```objc
 NSError *error;
 [self trySomethingWithError:&error];
-if (error) {
+if (error) 
+{
     // Handle Error
 }
 ```
@@ -175,7 +180,8 @@ Property definitions should be used in place of naked instance variables wheneve
 **Not:**
 
 ```objc
-@interface NYTSection : NSObject {
+@interface NYTSection : NSObject 
+{
     NSString *headline;
 }
 ```
@@ -281,9 +287,11 @@ Block comments should generally be avoided, as code should be as self-documentin
 `init` methods should be structured like this:
 
 ```objc
-- (instancetype)init {
+- (instancetype)init 
+{
     self = [super init]; // or call the designated initializer
-    if (self) {
+    if (self) 
+    {
         // Custom initialization
     }
 
@@ -368,7 +376,8 @@ When using `enum`s, use the new fixed underlying type specification, which provi
 **Example:**
 
 ```objc
-typedef NS_ENUM(NSInteger, NYTAdRequestState) {
+typedef NS_ENUM(NSInteger, NYTAdRequestState) 
+{
     NYTAdRequestStateInactive,
     NYTAdRequestStateLoading
 };
@@ -381,7 +390,8 @@ When working with bitmasks, use the `NS_OPTIONS` macro.
 **Example:**
 
 ```objc
-typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
+typedef NS_OPTIONS(NSUInteger, NYTAdCategory) 
+{
     NYTAdCategoryAutos      = 1 << 0,
     NYTAdCategoryJobs       = 1 << 1,
     NYTAdCategoryRealState  = 1 << 2,
@@ -423,10 +433,12 @@ Never compare something directly to `YES`, because `YES` is defined as `1`, and 
 **For an object pointer:**
 
 ```objc
-if (!someObject) {
+if (!someObject) 
+{
 }
 
-if (someObject == nil) {
+if (someObject == nil) 
+{
 }
 ```
 
@@ -458,11 +470,13 @@ _Text and example taken from the [Cocoa Naming Guidelines](https://developer.app
 
 Singleton objects should use a thread-safe pattern for creating their shared instance.
 ```objc
-+ (instancetype)sharedInstance {
++ (instancetype)sharedInstance 
+{
     static id sharedInstance = nil;
 
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    dispatch_once(&onceToken, ^
+    {
         sharedInstance = [[[self class] alloc] init];
     });
 
