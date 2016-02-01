@@ -1,6 +1,6 @@
 # Objective-C Style Guide
 
-This style guide outlines the best coding practice. It is constanly being improved and updated. The guide is initially based on the [NYTimes Objective-C Style Guide](https://github.com/NYTimes/objetive-c-style-guide).
+This style guide outlines the best coding practice gathered from iOS developers around the world. It is constanly being improved and updated. The guide is initially based on the [NYTimes Objective-C Style Guide](https://github.com/NYTimes/objetive-c-style-guide).
 
 
 ## Introduction
